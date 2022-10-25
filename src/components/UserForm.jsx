@@ -10,11 +10,13 @@ function UserForm({ addTask }) {
   function hendelSubmit(e) {
     e.preventDefault();
 
-    if (input.trim().length !== 5) {
+    if (input.trim().length && userInput.trim().length) {
       addTask(userInput, input);
 
       setUserInput("");
       setInput("");
+    } else {
+      return alert("Fill all the fields");
     }
   }
   function inpunHandler(e) {

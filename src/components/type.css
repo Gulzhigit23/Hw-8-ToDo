@@ -1,0 +1,18 @@
+
+  /* background-color: red;
+  width:100%;
+  height: 1000px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(0 0 0 4); */
+  
+  .Div{
+    /* background: grey; */
+    width: 400px;
+    margin: 0 auto;
+    background-color: rgb(0,0,0,0.1);
+    opacity: 1;
+
+  }
+ 

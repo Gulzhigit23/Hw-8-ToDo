@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import UserForm from "./components/UserForm";
 import Userlist from "./components/Userlist";
 // import Modal from "./components/Modal";
-import UserItem from "./components/userItem";
+import UserItem from "./components/UserItem";
 // import AitemInfo from "./components/AitemInfo";
 
 function App() {

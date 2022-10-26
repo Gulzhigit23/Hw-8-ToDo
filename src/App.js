@@ -1,36 +1,47 @@
-import React, { useState } from "react";
-import UserForm from "./components/UserForm";
-import Userlist from "./components/Userlist";
-// import Modal from "./components/Modal";
-import UserItem from "./components/UserItem";
-// import AitemInfo from "./components/AitemInfo";
+import { useState } from "react";
+import styled from "styled-components";
+import FormInput from "./components/FormInput";
+import FormItems from "./components/FormItems";
+import { elments } from "./helpers/general";
 
 function App() {
-  const [todo, setTodo] = useState([]);
+  const [todos, setTodos] = useState(elments);
 
-  function addTask(input, input2) {
-    setTodo([
-      ...todo,
+  const addTodo = (task) => {
+    setTodos([
+      ...todos,
+
       {
-        input: input2,
-        title: input,
+        title: task,
         id: Math.random(),
+        completed: false,
       },
     ]);
-  }
-
-  function deleit(idData) {
-    setTodo(todo.filter((id) => id.id !== idData));
-  }
+  };
 
   return (
-    <div>
-      <UserForm addTask={addTask} />
-      <Userlist todo={todo} deleit={deleit} />
-      {/* <Modal deleit={deleit} todo={todo}/> */}
-      {/* <AitemInfo /> */}
+    <div className="App">
+      <FormInput getTodo={addTodo} />
+      {todos.length > 0 ? (
+        <FormItems todos={todos} setTodos={setTodos} />
+      ) : (
+        <Paragraph> No todos</Paragraph>
+      )}
     </div>
   );
 }
 
 export default App;
+
+const Paragraph = styled.p`
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  width: 405px;
+  height: 45px;
+  background: lightgreen;
+  text-align: center;
+  border-radius: 10px;
+  margin: auto;
+  margin-top: 20px;
+  padding-top: 10px;
+`;
